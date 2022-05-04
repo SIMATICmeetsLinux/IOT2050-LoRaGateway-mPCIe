@@ -1,0 +1,14 @@
+[Unit]
+Description=LoRa Gateway using WM1302 LoRaWAN Gateway Module (USB) - EU868
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+WorkingDirectory=/root/sx1302_hal/packet_forwarder/
+ExecStart=/root/sx1302_hal/packet_forwarder/start.sh
+SyslogIdentifier=iot2050-gateway
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
